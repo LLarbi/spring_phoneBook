@@ -1,6 +1,7 @@
 package com.example.phonebook.service;
 
 import com.example.phonebook.model.entity.Contact;
+import com.example.phonebook.model.entity.User;
 import com.example.phonebook.repository.ContactRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -14,5 +15,9 @@ public class ContactService {
 
     public List<Contact> getAllContacts(){
         return contactRepository.findAll();
+    }
+
+    public void addContact(Contact contact){
+        contactRepository.save(contact);
     }
 }
