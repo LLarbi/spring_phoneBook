@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org/" >
+<head>
+  <meta charset="UTF-8">
+  <title>Edit Contact</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+
+</head>
+<body>
+<div class="container-fluid">
+  <h2>Edit Contact</h2>
+  <form action="#" th:action="@{'/contacts/edit/'+*{id}}" th:object="${contact}"  method="post">
+    <label>First Name :</label>
+    <input class="form-control" type="text" th:field="*{firstname}" />
+    <label>Last Name :</label>
+    <input class="form-control" type="text" th:field="*{lastname}" />
+    <label>Email :</label>
+    <input class="form-control" type="email" th:field="*{email}" />
+    <label>Phone :</label>
+    <input class="form-control" type="tel" th:field="*{phone}" />
+    <label>Company :</label>
+    <input class="form-control" type="text" th:field="*{company}" />
+    <label>Job :</label>
+    <input class="form-control" type="text" th:field="*{job}" />
+    <label>Avatar :</label>
+    <input class="form-control" type="text" th:field="*{avatar}" />
+    <label>Country :</label>
+    <input class="form-control" type="text" th:field="*{country}" />
+    <label>Street adress :</label>
+    <input class="form-control" type="text" th:field="*{street}" />
+    <label>Postal code :</label>
+    <input class="form-control" type="text" th:field="*{postal_code}" />
+    <label>city :</label>
+    <input class="form-control" type="text" th:field="*{city}" />
+    <label>Birthday :</label>
+    <input class="form-control" type="date" th:field="*{birthday}"/>
+    <label>Notes :</label>
+    <input class="form-control" type="text" th:field="*{notes}" />
+    <button type="submit" class="btn mt-3 btn-dark">Add contact</button>
+  </form>
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+</body>
+</html>
