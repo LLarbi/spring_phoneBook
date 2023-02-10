@@ -9,5 +9,5 @@ import java.util.List;
 
 @Repository
 public interface ContactRepository extends JpaRepository<Contact, Integer> {
-    List<Contact> findContactsByLastnameContaining(String lastname);
+    List<Contact> findContactsByLastnameContaining(String search);
 }

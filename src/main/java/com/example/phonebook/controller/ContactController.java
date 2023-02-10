@@ -56,8 +56,8 @@ public class ContactController {
     }
 
     @GetMapping(path="/search")
-    public String searchUser(Model model, @RequestParam String lastname) {
-        List<Contact> contactList = contactService.getContactsByLastname(lastname);
+    public String searchUser(Model model, @RequestParam String search) {
+        List<Contact> contactList = contactService.getContactsByLastname(search);
         model.addAttribute("contacts", contactList);
         return "list-contacts";
     }

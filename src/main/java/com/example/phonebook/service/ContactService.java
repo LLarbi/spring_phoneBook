@@ -41,7 +41,7 @@ public class ContactService {
         }
     }
 
-    public List<Contact> getContactsByLastname(String lastname) {
-        return contactRepository.findContactsByLastnameContaining(lastname);
+    public List<Contact> getContactsByLastname(String search) {
+        return contactRepository.findContactsByLastnameContaining(search);
     }
 }
