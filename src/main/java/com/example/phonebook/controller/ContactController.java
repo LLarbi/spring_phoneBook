@@ -9,6 +9,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @Controller
 @RequestMapping(path="/contacts")
@@ -61,4 +62,15 @@ public class ContactController {
         model.addAttribute("contacts", contactList);
         return "list-contacts";
     }
+
+    @GetMapping(path="/details/{id}")
+    public String detailsContact(Model model, @PathVariable Integer id) {
+        Optional<Contact> contactOpt = contactService.getContact(id);
+        if(contactOpt.isPresent()){
+            model.addAttribute("contact",contactOpt.get());
+            return "details-contact";
+        }
+        return "not_found";
+    }
+
 }
