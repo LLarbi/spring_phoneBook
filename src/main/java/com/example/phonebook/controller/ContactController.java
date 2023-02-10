@@ -54,4 +54,11 @@ public class ContactController {
         contactService.deleteContact(id);
         return "redirect:/contacts/all";
     }
+
+    @GetMapping(path="/search")
+    public String searchUser(Model model, @RequestParam String lastname) {
+        List<Contact> contactList = contactService.getContactsByLastname(lastname);
+        model.addAttribute("contacts", contactList);
+        return "list-contacts";
+    }
 }
