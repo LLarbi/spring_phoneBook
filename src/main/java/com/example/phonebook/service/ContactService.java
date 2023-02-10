@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class ContactService {
@@ -18,6 +19,18 @@ public class ContactService {
     }
 
     public void addContact(Contact contact){
+        contactRepository.save(contact);
+    }
+
+    public Contact findById(Integer id) {
+        Optional<Contact> contactOpt = contactRepository.findById(id);
+        if(contactOpt.isPresent()){
+            return contactOpt.get();
+        }
+        return new Contact();
+    }
+
+    public void updateContact(Contact contact) {
         contactRepository.save(contact);
     }
 }
