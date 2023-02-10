@@ -33,4 +33,11 @@ public class ContactService {
     public void updateContact(Contact contact) {
         contactRepository.save(contact);
     }
+
+    public void deleteContact(Integer id) {
+        Optional<Contact> contactOpt = contactRepository.findById(id);
+        if(contactOpt.isPresent()){
+            contactRepository.delete(contactOpt.get());
+        }
+    }
 }

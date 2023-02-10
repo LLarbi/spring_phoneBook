@@ -49,4 +49,9 @@ public class ContactController {
         return "redirect:/contacts/all";
     }
 
+    @GetMapping(path="/delete/{id}")
+    public String deleteContact(@PathVariable Integer id){
+        contactService.deleteContact(id);
+        return "redirect:/contacts/all";
+    }
 }
