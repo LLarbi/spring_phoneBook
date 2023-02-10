@@ -40,4 +40,8 @@ public class ContactService {
             contactRepository.delete(contactOpt.get());
         }
     }
+
+    public List<Contact> getContactsByLastname(String lastname) {
+        return contactRepository.findContactsByLastnameContaining(lastname);
+    }
 }
