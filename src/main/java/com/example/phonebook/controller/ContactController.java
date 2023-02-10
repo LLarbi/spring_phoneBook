@@ -9,6 +9,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @Controller
 @RequestMapping(path="/contacts")
@@ -56,9 +57,20 @@ public class ContactController {
     }
 
     @GetMapping(path="/search")
-    public String searchUser(Model model, @RequestParam String lastname) {
-        List<Contact> contactList = contactService.getContactsByLastname(lastname);
+    public String searchUser(Model model, @RequestParam String search) {
+        List<Contact> contactList = contactService.getContactsByLastname(search);
         model.addAttribute("contacts", contactList);
         return "list-contacts";
     }
+
+    @GetMapping(path="/details/{id}")
+    public String detailsContact(Model model, @PathVariable Integer id) {
+        Optional<Contact> contactOpt = contactService.getContact(id);
+        if(contactOpt.isPresent()){
+            model.addAttribute("contact",contactOpt.get());
+            return "details-contact";
+        }
+        return "not_found";
+    }
+
 }
