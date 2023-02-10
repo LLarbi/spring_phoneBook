@@ -129,7 +129,8 @@
     </tr>
     </tbody>
 </table>
-
+////////////////////////////////
+<header>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
     <div class="container">
         <div class="collapse navbar-collapse" id="navbarResponsive">
@@ -156,6 +157,7 @@
         </div>
     </div>
 </nav>
+</header>
 
 <div class="container">
     <div class="row">
@@ -163,20 +165,26 @@
             <table id="example" class="table table-bordered" style="width: 100%">
                 <thead>
                 <tr>
-                    <th>Prénom</th>
-                    <th>Nom</th>
-                    <th>Email</th>
-                    <th></th>
-                    <th></th>
+                    <th scope="col">First Name</th>
+                    <th scope="col">Last Name</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Actions</th>
                 </tr>
                 </thead>
-                <tbody>
-                <tr th:each="employee : ${employees.page.content}">
-                    <td th:text="${employee.name}">Name</td>
-                    <td th:text="${employee.position}">Position</td>
-                    <td th:text="${employee.office}">Office</td>
-                    <td th:text="${#dates.format(employee.startDate, 'dd.MM.yyyy')}">Start date</td>
-                    <td th:text="'$' + ${#numbers.formatDecimal(employee.salary, 0, 'COMMA', 2, 'POINT')}">Salary</td>
+                <tbody th:each="contact: ${contacts}">
+                <tr>
+                    <td th:text="${contact.firstname}"></td>
+                    <td th:text="${contact.lastname}"></td>
+                    <td th:text="${contact.email}"></td>
+                    <td><a class="btn btn-primary" data-toggle="collapse" href="#" role="button" aria-expanded="false" aria-controls="collapseExample">
+                        Details
+                    </a></td>
+                    <td>
+                        <button type="button"
+                                class="btn btn-link btn-rounded btn-sm fw-bold"
+                                data-mdb-ripple-color="dark">Modifier
+                        </button>
+                    </td>
                 </tr>
                 </tbody>
             </table>
