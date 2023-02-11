@@ -56,15 +56,13 @@
             <td th:text="${contact.firstname}"></td>
             <td th:text="${contact.lastname}"></td>
             <td th:text="${contact.email}"></td>
-            <td><a class="btn btn-primary" data-toggle="collapse" href="#" role="button" aria-expanded="false" aria-controls="collapseExample">
+            <td><a class="btn btn-primary" data-toggle="collapse" href="/contacts/details/{id}" role="button" aria-expanded="false" aria-controls="collapseExample">
                 Details
             </a>
                 <a class="btn btn-primary" data-toggle="collapse" href="#" role="button" aria-expanded="false" aria-controls="collapseExample">
                     Edit
                 </a>
-                <a class="btn btn-primary" data-toggle="collapse" href="#" role="button" aria-expanded="false" aria-controls="collapseExample">
-                    Delete
-                </a>
+                <a th:href="@{/contacts/delete/{id}(id=${contact.id})}" class="btn btn-danger ml-2">Delete</a>
             </td>
         </tr>
         </tbody>
