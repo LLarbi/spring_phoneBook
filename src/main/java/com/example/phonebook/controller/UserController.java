@@ -23,7 +23,7 @@ public class UserController {
     @PostMapping(path="/register")
     public String createUser(@ModelAttribute User user){
         userService.create(user);
-        return "redirect:/users/register";
+        return "redirect:/login";
     }
 
     @GetMapping(path="/edit/{id}")
