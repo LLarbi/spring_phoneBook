@@ -7,6 +7,28 @@
 </head>
 <body>
 <div class="container-fluid">
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="collapse navbar-collapse" id="navbarText">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/contacts/all}">Contacts</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/users/add}">Add</a>
+                    </li>
+                </ul>
+                <form action="#" th:action="@{/logout}" class="d-flex"  method="post">
+                    <button class="btn btn-outline-dark" type="submit">Logout</button>
+                </form>
+                <form action="#" th:action="@{/contacts/search}" class="d-flex" role="search" method="get">
+                    <input name="search" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit">Search</button>
+                </form>
+
+            </div>
+        </nav>
+    </header>
     <h2>Contacts List</h2>
     <table class="table table-striped">
         <thead>
@@ -22,9 +44,16 @@
             <td th:text="${contact.firstname}"></td>
             <td th:text="${contact.lastname}"></td>
             <td th:text="${contact.email}"></td>
-            <td><a class="btn btn-primary" data-toggle="collapse" href="#" role="button" aria-expanded="false" aria-controls="collapseExample">
+            <td>
+                <a class="btn btn-primary" data-toggle="collapse" th:href="@{'/contacts/details/'+${contact.id}}" role="button" aria-expanded="false" aria-controls="collapseExample">
                 Details
-            </a></td>
+                </a>
+                <a class="btn btn-primary" data-toggle="collapse" th:href="@{'/contacts/edit/'+${contact.id}}" role="button" aria-expanded="false" aria-controls="collapseExample">
+                    Edit
+                </a>
+                <a class="btn btn-primary" data-toggle="collapse" th:href="@{'/contacts/delete/'+${contact.id}}" role="button" aria-expanded="false" aria-controls="collapseExample">
+                    Delete
+                </a>
         </tr>
         </tbody>
     </table>
