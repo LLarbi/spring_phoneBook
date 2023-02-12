@@ -20,11 +20,9 @@
                     <li class="nav-item">
                         <a class="nav-link" href="/contacts/add">Add Contact</a>
                     </li>
-                    <form>
-                            <i class="fa fa-search"></i>
-                            <input id="search" type="search" name="search" th:value="${search}" required class="form-control"
-                                   placeholder="Search a contact">
-                            <button type="submit" class="btn btn-secondary">Search</button>
+                    <form class="form-inline">
+                        <input class="form-control mr-sm-2" type="search" placeholder="Search a contact" aria-label="Search">
+                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
                     </form>
 
                 </ul>
